@@ -74,9 +74,14 @@ WSGI_APPLICATION = 'social_media_posts_backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # docker run --name django -e POSTGRES_USER=core -e POSTGRES_PASSWORD=faicist117 -e POSTGRES_DB=coreDB -p 5433:5432 -d postgresdjango
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'coreDB',
+        'USER': 'core',
+        'PASSWORD': 'faicist117',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 
