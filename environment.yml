@@ -1,0 +1,27 @@
+name: social-media-posts-backend
+channels:
+  - defaults
+dependencies:
+  - bzip2=1.0.8=h80987f9_6
+  - ca-certificates=2024.3.11=hca03da5_0
+  - libffi=3.4.4=hca03da5_1
+  - ncurses=6.4=h313beb8_0
+  - openssl=3.0.13=h1a28f6b_2
+  - python=3.11.9=hb885b13_0
+  - pyyaml=6.0.1=py311h80987f9_0
+  - readline=8.2=h1a28f6b_0
+  - sqlite=3.45.3=h80987f9_0
+  - tk=8.6.14=h6ba3021_0
+  - wheel=0.43.0=py311hca03da5_0
+  - xz=5.4.6=h80987f9_1
+  - yaml=0.2.5=h1a28f6b_0
+  - zlib=1.2.13=h18a0788_1
+  - pip:
+      - asgiref==3.8.1
+      - django==5.1a1
+      - pip==24.1b1
+      - psycopg2-binary==2.9.9
+      - setuptools==70.0.0
+      - sqlparse==0.5.0
+      - tzdata==2024.1
+prefix: /opt/homebrew/Caskroom/miniconda/base/envs/social-media-posts-backend

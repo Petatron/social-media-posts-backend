@@ -1,0 +1,7 @@
+asgiref==3.8.1
+django==5.1a1
+pip==24.1b1
+psycopg2-binary==2.9.9
+setuptools==70.0.0
+sqlparse==0.5.0
+tzdata==2024.1
