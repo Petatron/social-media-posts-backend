@@ -8,3 +8,7 @@ django:
 
 migrate:
 	python manage.py migrate
+
+env:
+	conda env export > environment.yml
+	python convert.py
