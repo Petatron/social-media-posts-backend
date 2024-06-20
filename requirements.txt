@@ -11,3 +11,7 @@ pytest-cov==5.0.0
 setuptools==70.0.0
 sqlparse==0.5.0
 tzdata==2024.1
+
+djangorestframework~=3.15.2
+yaml~=0.2.5
+pyyaml~=6.0.1
