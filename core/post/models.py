@@ -9,6 +9,7 @@ class PostManager(AbstractManager):
 
 
 class Post(AbstractModel):
+    public_id = models.UUIDField(primary_key=True, editable=False)
     author = models.ForeignKey(to="core_user.User", on_delete=models.CASCADE)
     body = models.TextField()
     edited = models.BooleanField(default=False)
