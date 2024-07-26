@@ -3,6 +3,7 @@ import logging
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from core.abstract.viewsets import AbstractViewSet
 from core.post.models import Post
@@ -12,6 +13,7 @@ from core.post.serializers import PostSerializer
 class PostViewSet(AbstractViewSet):
     http_method_names = ('post', 'get')
     permission_classes = (IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
     serializer_class = PostSerializer
 
     def get_queryset(self):
@@ -25,7 +27,12 @@ class PostViewSet(AbstractViewSet):
         return obj
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
+
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        post = serializer.save()
+        res = {
+            "post": str(post),
+        }
+
+        return Response(res, status=status.HTTP_201_CREATED)
