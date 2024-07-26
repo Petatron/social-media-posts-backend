@@ -4,7 +4,7 @@
 
 
 ## Get Started
-**Step 1.** Envirement setup
+**Step 1.** Environment setup
 - Use `python3-pip`:
 ```
 apt install python3-pip
