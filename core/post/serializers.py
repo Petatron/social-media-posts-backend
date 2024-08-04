@@ -1,6 +1,7 @@
 from core.abstract.serializer import AbstractSerializer
 from core.post.models import Post
 from core.user.models import User
+from core.user.serializers import UserSerializer
 
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
@@ -14,6 +15,13 @@ class PostSerializer(AbstractSerializer):
         if self.context["request"].user != value:
             raise ValidationError("You can't create a post for another user.")
         return value
+
+    def to_representation(self, instance):
+        """Convert the instance to a dictionary."""
+        data = super().to_representation(instance)
+        author = User.objects.get_object_by_public_id(data['author'])
+        data['author'] = UserSerializer(author).data
+        return data
 
     class Meta:
         model = Post
