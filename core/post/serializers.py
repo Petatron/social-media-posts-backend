@@ -1,6 +1,7 @@
 from core.abstract.serializer import AbstractSerializer
 from core.post.models import Post
 from core.user.models import User
+from core.user.serializers import UserSerializer
 
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
@@ -8,7 +9,7 @@ from rest_framework.exceptions import ValidationError
 
 class PostSerializer(AbstractSerializer):
     """Serializer for the Post model."""
-    author = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field='username')
+    author = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field='public_id')
 
     def validate_author(self, value):
         if self.context["request"].user != value:
@@ -18,7 +19,8 @@ class PostSerializer(AbstractSerializer):
     def to_representation(self, instance):
         """Convert the instance to a dictionary."""
         data = super().to_representation(instance)
-        data["author_uid"] = instance.author.public_id
+        author = User.objects.get_object_by_public_id(data['author'])
+        data['author'] = UserSerializer(author).data
         return data
 
     class Meta:
