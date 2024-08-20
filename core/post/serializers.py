@@ -16,6 +16,14 @@ class PostSerializer(AbstractSerializer):
             raise ValidationError("You can't create a post for another user.")
         return value
 
+    def update(self, instance, validated_data):
+        if not instance.edited:
+            validated_data['edited'] = True
+
+        instance = super().update(instance, validated_data)
+
+        return instance
+
     def to_representation(self, instance):
         """Convert the instance to a dictionary."""
         data = super().to_representation(instance)
