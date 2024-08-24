@@ -1,4 +1,3 @@
-import uuid
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
@@ -63,6 +62,8 @@ class User(AbstractBaseUser, PermissionsMixin, AbstractModel):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
+    posts_liked = models.ManyToManyField('core_post.Post', related_name='liked_by', blank=True)
 
     objects = UserManager()
 
