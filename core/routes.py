@@ -4,6 +4,8 @@ from core.user.viewsets import UserViewSet
 from core.auth.viewsets import LoginViewSet
 from core.auth.viewsets import RefreshViewSet
 from core.post.viewsets import PostViewSet
+from core.like.viewsets import LikeViewSet
+from django.urls import path, include
 
 router = routers.SimpleRouter()
 
@@ -16,4 +18,5 @@ router.register(r'post', PostViewSet, basename='post')
 
 urlpatterns = [
     *router.urls,
+    path('like/<str:post_id>/', LikeViewSet.as_view({'post': 'like'}), name='like-post'),
 ]

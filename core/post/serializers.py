@@ -9,19 +9,22 @@ from rest_framework.exceptions import ValidationError
 
 class PostSerializer(AbstractSerializer):
     """Serializer for the Post model."""
-    author = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field='public_id')
+    author = serializers.SlugRelatedField(queryset=User.objects.all(), 
+                                          slug_field='public_id', required=False)  # author is optional
+    title = serializers.CharField(required=True)
+    body = serializers.CharField(required=True)
 
-    def validate_author(self, value):
-        if self.context["request"].user != value:
-            raise ValidationError("You can't create a post for another user.")
-        return value
+    def create(self, validated_data):
+        # Automatically set the author to the currently authenticated user if not provided
+        if 'author' not in validated_data:
+            validated_data['author'] = self.context['request'].user
+        return super().create(validated_data)
 
     def update(self, instance, validated_data):
         if not instance.edited:
             validated_data['edited'] = True
 
         instance = super().update(instance, validated_data)
-
         return instance
 
     def to_representation(self, instance):
@@ -33,6 +36,5 @@ class PostSerializer(AbstractSerializer):
 
     class Meta:
         model = Post
-        # List of all the fields that can only be read by the user
-        fields = ['id', 'author', 'body', 'edited', 'created', 'updated']
+        fields = ['id', 'author', 'title', 'body', 'edited', 'created', 'updated']
         read_only_fields = ['edited']
