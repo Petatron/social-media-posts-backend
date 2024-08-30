@@ -19,4 +19,6 @@ router.register(r'post', PostViewSet, basename='post')
 urlpatterns = [
     *router.urls,
     path('like/<str:post_id>/', LikeViewSet.as_view({'post': 'like'}), name='like-post'),
+    path('unlike/<str:post_id>/', LikeViewSet.as_view({'post': 'unlike'}), name='unlike-post'),
+    path('has_like/', LikeViewSet.as_view({'get': 'has_like'}), name='has-like'),
 ]
