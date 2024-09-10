@@ -46,6 +46,3 @@ credentials.txt
 *~
 *.bak
 /db.sqlite3
-
-# Ignore Jupyter Notebook checkpoints
-*.pyc
