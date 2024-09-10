@@ -45,3 +45,4 @@ credentials.txt
 # Ignore backup files
 *~
 *.bak
+/db.sqlite3
