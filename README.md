@@ -74,9 +74,12 @@ Now you can use Postman to emulate requests to this server.
 }
 ```
 - Create post: `POST` request to `http://localhost:8000/api/post/` with JSON body
+- Make sure to include the `Authorization` header with the value `Bearer TOKEN` where `TOKEN` is the access token from the login response.
 ```
 {
-    "title": "My first post",
-    "content": "Hello world!"
+    "author": "<author_id>",
+    "body": "A simple post"
 }
 ```
+- Like a post: `POST` request to `http://localhost:8000/api/post/post_id/like/` with JSON body. Make sure to include the `Authorization` header with the value
+Bearer TOKEN. For unlike a post, use `POST` request to  `http://localhost:8000/api/post/post_id/unlike/`.
