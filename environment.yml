@@ -2,35 +2,48 @@ name: social-media-posts-backend
 channels:
   - defaults
 dependencies:
+  - asgiref=3.8.1=py312hca03da5_0
   - bzip2=1.0.8=h80987f9_6
   - ca-certificates=2024.7.2=hca03da5_0
+  - expat=2.6.3=h313beb8_0
+  - freetype=2.12.1=h1192e45_0
+  - jpeg=9e=h80987f9_3
+  - lcms2=2.12=hba8e193_0
+  - lerc=3.0=hc377ac9_0
+  - libcxx=14.0.6=h848a8c0_0
+  - libdeflate=1.17=h80987f9_1
   - libffi=3.4.4=hca03da5_1
+  - libpng=1.6.39=h80987f9_0
+  - libtiff=4.5.1=h313beb8_0
+  - libwebp-base=1.3.2=h80987f9_0
+  - lz4-c=1.9.4=h313beb8_1
   - ncurses=6.4=h313beb8_0
-  - openssl=3.0.14=h80987f9_0
-  - python=3.11.9=hb885b13_0
+  - openjpeg=2.5.2=h54b8e55_0
+  - openssl=3.0.15=h80987f9_0
+  - packaging=24.1=py312hca03da5_0
+  - pillow=10.4.0=py312h80987f9_0
+  - pip=24.2=py312hca03da5_0
+  - python=3.12.4=h99e199e_1
   - readline=8.2=h1a28f6b_0
   - sqlite=3.45.3=h80987f9_0
   - tk=8.6.14=h6ba3021_0
   - xz=5.4.6=h80987f9_1
   - yaml=0.2.5=h1a28f6b_0
   - zlib=1.2.13=h18a0788_1
+  - zstd=1.5.5=hd90d995_2
   - pip:
-      - asgiref==3.8.1
       - coverage==7.6.1
-      - django==5.1
+      - django==5.1.1
       - djangorestframework==3.15.2
       - djangorestframework-simplejwt==5.3.1
       - iniconfig==2.0.0
-      - packaging==24.1
-      - pillow==10.4.0
-      - pip==24.2
       - pluggy==1.5.0
       - psycopg2-binary==2.9.9
       - pyjwt==2.9.0
-      - pytest==8.3.2
+      - pytest==8.3.3
       - pytest-cov==5.0.0
       - pyyaml==6.0.2
-      - setuptools==73.0.0
+      - setuptools==74.1.2
       - sqlparse==0.5.1
       - tzdata==2024.1
       - wheel==0.44.0
