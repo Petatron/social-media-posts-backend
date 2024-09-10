@@ -83,3 +83,12 @@ class User(AbstractBaseUser, PermissionsMixin, AbstractModel):
             first_name, last_name = value.split(' ')
             self.first_name = first_name
             self.last_name = last_name
+
+    def like(self, post):
+        self.posts_liked.add(post)
+
+    def unlike(self, post):
+        self.posts_liked.remove(post)
+
+    def has_liked(self, post):
+        return self.posts_liked.filter(id=post.id).exists()
