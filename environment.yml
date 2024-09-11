@@ -7,6 +7,7 @@ dependencies:
   - libffi=3.4.4=hca03da5_1
   - ncurses=6.4=h313beb8_0
   - openssl=3.0.14=h80987f9_0
+  - pip=24.2=py311hca03da5_0
   - python=3.11.9=hb885b13_0
   - readline=8.2=h1a28f6b_0
   - sqlite=3.45.3=h80987f9_0
@@ -23,7 +24,6 @@ dependencies:
       - iniconfig==2.0.0
       - packaging==24.1
       - pillow==10.4.0
-      - pip==24.2
       - pluggy==1.5.0
       - psycopg2-binary==2.9.9
       - pyjwt==2.9.0
