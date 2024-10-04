@@ -68,3 +68,6 @@
 - [Adding the like, remove_like, and has_liked methods](https://www.educative.io/courses/full-stack-django-and-react/adding-the-like-feature#Adding-the-like-removelike-and-hasliked-methods)
 - [Adding the likes_count and has_liked fields to PostSerializer](https://www.educative.io/courses/full-stack-django-and-react/adding-the-like-feature#Adding-the-likescount-and-hasliked-fields-to-PostSerializer)
 - [Adding like and remove like actions to PostViewSet](https://www.educative.io/courses/full-stack-django-and-react/adding-the-like-feature#Adding-like-and-remove-like-actions-to-PostViewSet)
+
+### [PETA-110 Implement create comment feature](https://github.com/Petatron/social-media-posts-backend/pull/22)
+- Create comment models
