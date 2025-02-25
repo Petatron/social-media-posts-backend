@@ -12,6 +12,7 @@
 # Ignore Python venv
 venv/
 __pycache__/
+*.pyc
 
 
 # Ignore system files
